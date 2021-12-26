@@ -1,0 +1,19 @@
+.container img {
+  height: 35px;
+  padding: 0 15px 0px 5px;
+}
+.pro-sidebar {
+  grid-area: sidebar;
+  width: 100% !important;
+}
+.pro-sidebar-header {
+  padding: 8px 35px 8px 20px;
+  display: flex;
+  align-items: center;
+}
+.pro-sidebar-footer {
+  padding: 8px 35px 8px 20px;
+}
+.pro-sidebar h1 {
+  color: white;
+}
