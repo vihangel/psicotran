@@ -8,6 +8,7 @@ import {
   SidebarContent,
 } from "react-pro-sidebar";
 
+import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Sidebar.css";
 import React from "react";
@@ -34,16 +35,35 @@ const Sidebar = () => {
       </SidebarHeader>
       <SidebarContent>
         <Menu iconShape="round">
-          <MenuItem icon={<FaUser />}>Candidatos</MenuItem>
+          <MenuItem icon={<FaUser />}>
+            Candidatos <Link to="/" />
+          </MenuItem>
           <SubMenu title="Avaliação" icon={<FaPencilAlt />}>
-            <MenuItem icon={<FaPause />}>Pendentes</MenuItem>
-            <MenuItem icon={<FaPlay />}>Em avaliação</MenuItem>
-            <MenuItem icon={<FaCheck />}> Avaliados</MenuItem>
-            <MenuItem icon={<FaRedoAlt />}>Resteste</MenuItem>
+            <MenuItem icon={<FaPause />}>
+              Pendentes
+              <Link to="/" />
+            </MenuItem>
+            <MenuItem icon={<FaPlay />}>
+              Em avaliação
+              <Link to="/" />
+            </MenuItem>
+            <MenuItem icon={<FaCheck />}>
+              Avaliados
+              <Link to="/" />
+            </MenuItem>
+            <MenuItem icon={<FaRedoAlt />}>
+              Resteste
+              <Link to="/" />
+            </MenuItem>
           </SubMenu>
 
-          <MenuItem icon={<FaCashRegister />}>Caixa</MenuItem>
-          <MenuItem icon={<FaClipboardList />}>Relatorios</MenuItem>
+          <MenuItem icon={<FaCashRegister />}>
+            Caixa
+            <Link to="/caixa" />
+          </MenuItem>
+          <MenuItem icon={<FaClipboardList />}>
+            Relatorios <Link to="/relatorios" />
+          </MenuItem>
         </Menu>
       </SidebarContent>
       <SidebarFooter>

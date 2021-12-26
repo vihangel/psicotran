@@ -1,6 +1,7 @@
 //import "./Sidebar.css";
 import React from "react";
 import "./form.css";
+
 import {
   FaCashRegister,
   FaUser,
@@ -29,7 +30,6 @@ const Forms = () => {
           </div>
           <input className="enviar" type="submit" />
         </form>
-        <br></br>
       </div>
     </div>
   );

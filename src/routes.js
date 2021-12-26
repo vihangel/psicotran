@@ -1,17 +1,28 @@
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Home from "./components/home/home";
+import Table from "./components/home/home";
 import Forms from "./components/forms/forms";
+import Cash from "./components/cash/cash";
+import Feedback from "./components/feedback/feedback";
 //import Exam from "./exam"; <Route component={Exam} path="/exam" />
+//</Switch><Route component={Table} path="/forms" />
 
-const Routes = () => {
+export default function MainRoutes() {
   return (
-    <BrowserRouter>
-      <Route component={Home} path="/" exact />
-      <Route component={Forms} path="/forms" />
-    </BrowserRouter>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div>
+            <Forms />
+            <Table />
+          </div>
+        }
+      />
+      <Route path="/forms" element={<Forms />} />
+      <Route path="/caixa" element={<Cash />} />
+      <Route path="/relatorios" element={<Feedback />} />
+    </Routes>
   );
-};
-
-export default Routes;
+}
