@@ -1,17 +1,11 @@
 //import "./Sidebar.css";
+import axios from "axios";
 import React from "react";
 import "./form.css";
 
-import {
-  FaCashRegister,
-  FaUser,
-  FaClipboardList,
-  FaPencilAlt,
-  FaPause,
-  FaPlay,
-  FaCheck,
-  FaRedoAlt,
-} from "react-icons/fa";
+//import api from "./services/api";
+
+//api.defaults.headers.authorization = `Bearer ${token}`;
 
 const Forms = () => {
   return (

@@ -1,15 +1,6 @@
 import React from "react";
 //import "./form.css";
-import {
-  FaCashRegister,
-  FaUser,
-  FaClipboardList,
-  FaPencilAlt,
-  FaPause,
-  FaPlay,
-  FaCheck,
-  FaRedoAlt,
-} from "react-icons/fa";
+import {} from "react-icons/fa";
 
 const Cash = () => {
   return (

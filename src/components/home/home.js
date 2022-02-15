@@ -6,13 +6,11 @@ import { Link } from "react-router-dom";
 import {
   FaCashRegister,
   FaPause,
-  FaPlay,
-  FaCheck,
   FaRedoAlt,
   FaPrint,
   FaDownload,
 } from "react-icons/fa";
-
+import axios from "axios";
 //import {dados} from '../data'
 const myList = [
   {
@@ -24,7 +22,38 @@ const myList = [
   },
 ];
 
+var tok = "";
+const loginUser = { name: "angel", password: "1234" };
+const url = "http://18.228.196.210:3333";
+
+function login() {
+  axios
+    .post(url + "/login", loginUser)
+    .then((response) => {
+      console.log(response.data);
+      const { token, user } = response.data;
+      console.log("tokennn: " + token);
+      tok = "Bearer ".concat(token);
+      console.log("teste: " + tok);
+      getUser();
+    })
+    .catch((error) => console.log(error));
+}
+function getUser() {
+  console.log("teste2: " + tok);
+  axios
+    .get(url + "/user", { headers: { Authorization: tok } })
+    .then((response) => {
+      // If request is good...
+      console.log("users " + response);
+    })
+    .catch((error) => {
+      console.log("erro " + error);
+    });
+}
+
 const Table = () => {
+  login();
   return (
     <div className="table-background">
       <div className="table-button">
