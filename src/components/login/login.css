@@ -1,0 +1,45 @@
+.login-background {
+  padding: 10px;
+  margin: 20px;
+  border-radius: 20px;
+
+  box-sizing: border-box !important;
+  background: lightgray;
+}
+.background {
+  border-radius: 10px;
+  background: white;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+}
+.background hr {
+  margin: 20px 0;
+  color: lightgray;
+}
+form {
+  width: 100%;
+  padding: 10px 10px 10px 30px;
+
+  border-spacing: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+form div label {
+  margin-right: 20px;
+}
+form div input {
+  border: 2px solid lightgray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+form button {
+  border: none;
+  padding: 8px 40px;
+  border-radius: 5px;
+  color: white;
+  background: #111213;
+}
