@@ -22,47 +22,48 @@ const myList = [
   },
 ];
 
-
-// function getUser({ tok }) {
-//   console.log("teste2: " + tok);
-//   axios
-//     .get(url + "/user", { headers: { Authorization: tok } })
-//     .then((response) => {
-//       // If request is good...
-//       console.log("users " + response);
-//     })
-//     .catch((error) => {
-//       console.log("erro " + error);
-//     });
-// }
-
-function getToken()  {
+function getToken() {
   const tokenString = sessionStorage.getItem("token");
   const userToken = JSON.parse(tokenString);
   return userToken?.token;
 }
 
+function listUserTable(userList) {
 
+  userList.forEach(element => {
+    // create a new div element
+    const newRow = document.createElement("tr");
 
+    // and give it some content
+    const newField = document.createElement("tr");
+    const newContent = document.createTextNode(element.name);
+    newField.appendChild(newContent);
+    newRow.appendChild(newField);
+
+  
+    // add the newly created element and its content into the DOM
+     const currentDiv = document.getElementById("userTable");
+    document.body.insertBefore(newField, currentDiv);
+  });
+
+}
 
 const Table = () => {
-
   const token = getToken();
   console.log("Token " + token);
 
-  const response =  getUser(token);
+  const response = getUser(token);
   var users;
-  const printResponse = () => {
-    response.then(({error, users}) => {
+  const printResponse = (users) => {
+    response.then(({ error, users }) => {
       console.log(users);
-  
+      users =users;
     });
   };
 
-  printResponse();
+  printResponse(users);
   console.log(users);
-
-  
+  // listUserTable(users);
   return (
     <div className="table-background">
       <div className="table-button">
@@ -73,7 +74,7 @@ const Table = () => {
           <FaDownload /> Baixar
         </button>
       </div>
-      <table>
+      <table className="userTable">
         <tr>
           <th>Nome</th>
           <th>CPF</th>
@@ -129,8 +130,7 @@ async function getUser(token) {
       Authorization: "Bearer " + token,
       "Content-Type": "application/json",
     },
-  }).then((response) => response.json())
-  
+  }).then((response) => response.json());
 }
 
 export default Table;
