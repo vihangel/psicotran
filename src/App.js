@@ -8,21 +8,14 @@ import Routes from "./routes";
 
 import Login from "./components/login/login";
 
+import useToken from './service/useToken';
+
 import { BrowserRouter as Router } from "react-router-dom";
 
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
 
 function App() {
 
-  const token = getToken();
+  const { token, setToken } = useToken();
 
 
   if(!token) {
@@ -33,7 +26,7 @@ function App() {
       <div className="container">
         <Sidebar />
         <div className="main">
-          <Routes />
+          <Routes token />
         </div>
       </div>
     </Router>

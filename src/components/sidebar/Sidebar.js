@@ -14,6 +14,7 @@ import "./Sidebar.css";
 import React from "react";
 
 import {
+  FaUserSlash,
   FaCashRegister,
   FaUser,
   FaClipboardList,
@@ -26,7 +27,13 @@ import {
 
 import logo from "../../assets/logo.png";
 
+function logout() {
+  window.localStorage.removeItem('token');
+  console.log("aqui");
+}
+
 const Sidebar = () => {
+  
   return (
     <ProSidebar>
       <SidebarHeader>
@@ -63,6 +70,9 @@ const Sidebar = () => {
           </MenuItem>
           <MenuItem icon={<FaClipboardList />}>
             Relatorios <Link to="/relatorios" />
+          </MenuItem>
+          <MenuItem icon={<FaUserSlash />}>
+              Sair
           </MenuItem>
         </Menu>
       </SidebarContent>

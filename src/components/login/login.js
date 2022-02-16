@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./login.css";
 
-//import api from "./services/api";
 
-//api.defaults.headers.authorization = `Bearer ${token}`;
 
 const Login = ({ setToken }) => {
   const [name, setName] = useState();
@@ -45,6 +43,7 @@ const Login = ({ setToken }) => {
 Login.propTypes = {
     setToken: PropTypes.func.isRequired
   };
+
 async function loginUser(credentials) {
   return fetch("http://18.228.196.210:3333/login", {
     method: "POST",

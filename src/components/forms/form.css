@@ -36,7 +36,7 @@ form div input {
   border-radius: 5px;
 }
 
-form .enviar {
+form button {
   border: none;
   padding: 8px 40px;
   border-radius: 5px;
