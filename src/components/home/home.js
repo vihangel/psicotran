@@ -22,26 +22,47 @@ const myList = [
   },
 ];
 
-var tok = "";
-const loginUser = { name: "angel", password: "1234" };
-const url = "http://18.228.196.210:3333";
 
+// function getUser({ tok }) {
+//   console.log("teste2: " + tok);
+//   axios
+//     .get(url + "/user", { headers: { Authorization: tok } })
+//     .then((response) => {
+//       // If request is good...
+//       console.log("users " + response);
+//     })
+//     .catch((error) => {
+//       console.log("erro " + error);
+//     });
+// }
 
-function getUser({ tok }) {
-  console.log("teste2: " + tok);
-  axios
-    .get(url + "/user", { headers: { Authorization: tok } })
-    .then((response) => {
-      // If request is good...
-      console.log("users " + response);
-    })
-    .catch((error) => {
-      console.log("erro " + error);
-    });
+function getToken()  {
+  const tokenString = sessionStorage.getItem("token");
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token;
 }
 
+
+
+
 const Table = () => {
-  getUser(tok);
+
+  const token = getToken();
+  console.log("Token " + token);
+
+  const response =  getUser(token);
+  var users;
+  const printResponse = () => {
+    response.then(({error, users}) => {
+      console.log(users);
+  
+    });
+  };
+
+  printResponse();
+  console.log(users);
+
+  
   return (
     <div className="table-background">
       <div className="table-button">
@@ -99,5 +120,17 @@ const Table = () => {
     </div>
   );
 };
+
+async function getUser(token) {
+  return fetch("http://18.228.196.210:3333/user", {
+    method: "GET",
+
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json())
+  
+}
 
 export default Table;
