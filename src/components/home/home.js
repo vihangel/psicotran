@@ -10,7 +10,7 @@ import {
   FaPrint,
   FaDownload,
 } from "react-icons/fa";
-import axios from "axios";
+
 //import {dados} from '../data'
 const myList = [
   {
